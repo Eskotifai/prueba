@@ -501,7 +501,7 @@ def SRP_arreglo():
             suma.append(A[k]+B[k]) #Lo mismo aplica para resta y multiplicacion
         print(suma)
 
-def ordenamiento_seleccion(): #ordena una lista 
+def ordenamiento_seleccion():
     arreglo=[]
     longitud=int(input('Determina la longitud del arreglo: '))
     
@@ -525,7 +525,7 @@ def ordenamiento_seleccion(): #ordena una lista
             
     print(f'Arreglo ordenado: {arreglo}')
         
-def ordenamiento_insercion(): #ordena una lista 
+def ordenamiento_insercion():
     arreglo=[]
     longitud=int(input('Determina la longitud del arreglo: '))
     for i in range(longitud):
@@ -540,7 +540,7 @@ def ordenamiento_insercion(): #ordena una lista
                 arreglo[k-1]=cambio
     print(f'Arreglo ordenado: {arreglo}')
 
-def ord_ins_sort(): #ordena una lista de forma ascendente usando .sort() empezando por numeros
+def ord_ins_sort():
     lista=[]
     longitud=int(input('Determina la longitud de la lista: '))
     for i in range(longitud):
@@ -550,7 +550,7 @@ def ord_ins_sort(): #ordena una lista de forma ascendente usando .sort() empezan
     lista.sort()
     print(f'Lista ordenada: {lista}')                        
  
-def ord_sel_sort(): #ordena una lista de forma decreciente usando .sort() empezando por letras
+def ord_sel_sort():
     lista=[]
     longitud=int(input('Determina la longitud de la lista: '))
     for i in range(longitud): 
@@ -560,6 +560,49 @@ def ord_sel_sort(): #ordena una lista de forma decreciente usando .sort() empeza
     lista.sort(reverse=True)
     print(f'Lista ordenada: {lista}') 
  
+def busq_binaria():
+    arreglo=[]
+    longitud=int(input('Determina la longitud del arreglo: '))
+    
+    for i in range(longitud):
+        objetos=int(input('Agrega numeros: '))
+        arreglo.append(objetos)
+    print(f'Arreglo: {arreglo}')
+    arreglo.sort()
+    print(f'Arreglo ordenado: {arreglo}')
+    
+    izq = 0
+    med = 0
+    der = len(arreglo) - 1
+       
+    buscar_numero=int(input('Busca un numero en el arreglo ordenado: '))
+    
+    while izq <= der:
+        
+        med = (izq+der)//2
+    
+        if buscar_numero > arreglo[med]:
+            izq = med + 1
+            
+        elif buscar_numero < arreglo[med]:
+            der = med - 1
+        else:
+            break
+        # print(izq, med, der)
+    
+    existe=False        
+    for i in arreglo:
+        if buscar_numero == i:
+            existe=True
+            break
+    if existe:
+        print(f'{buscar_numero} esta en el arreglo')
+    else:
+        print(f'{buscar_numero} no esta en el arreglo')
+            
+            
+    
+    
         
 if __name__ == '__main__':
-    ordenamiento_insercion()
+    busq_binaria()
